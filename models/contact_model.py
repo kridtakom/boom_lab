@@ -31,7 +31,7 @@ class ContactModel(models.Model):
 
     @api.model_create_multi
     def _check(self):
-        self.env['contact.model'].browse([1]).update({'primary_phone_no': '123456789'})
+        self.env['contact.model'].browse([1]).write({'primary_phone_no': '123456789'})
 
 
 class ContactPhoneModel(models.Model):
