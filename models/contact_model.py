@@ -25,10 +25,10 @@ class ContactModel(models.Model):
 
     @api.depends("birth_date")
     def _cal_age(self):
-        _logger.info("IT IS INFO =============================================: ", self)
         today_date = date.today()
         for rec in self:
             if rec.birth_date:
+                _logger.info("IT IS INFO =============================================: ", rec)
                 dob = fields.Datetime.to_datetime(rec.birth_date).date()
                 total_age = int((today_date - dob).days / 365)
                 rec.age = total_age
