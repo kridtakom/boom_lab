@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="contact_list_view" model="ir.ui.view">
+        <field name="name">contact.list.view</field>
+        <field name="model">contact.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id"/>
+                <field name="fullname"/>
+                <field name="birth_date"/>
+                <field name="bill_amount"/>
+                <field name="gender"/>
+                <field name="is_paid"/>
+                <field name="age"/>
+                <field name="description"/>
+                <field name="primary_phone_no"/>
+                <field name="primary_phone_Type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="contact_form_view" model="ir.ui.view">
+        <field name="name">contact.form.view</field>
+        <field name="model">contact.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="fullname"/>
+                            <field name="firstname"/>
+                            <field name="lastname"/>
+                            <field name="birth_date"/>
+                            <field name="bill_amount"/>
+                            <field name="gender"/>
+                            <field name="is_paid"/>
+                            <field name="age"/>
+                            <field name="description"/>
+                            <field name="primary_phone_no"/>
+                            <field name="primary_phone_Type"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Contact phone no.">
+                            <field name="contact_phone_id">
+                                <tree>
+                                    <field name="phone_no"/>
+                                    <field name="phone_type"/>
+                                    <field name="is_primary"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="contact_phone_list_view" model="ir.ui.view">
+        <field name="name">contact.phone.list.view</field>
+        <field name="model">contact.phone.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id"/>
+                <field name="phone_no"/>
+                <field name="phone_type"/>
+                <field name="is_primary"/>
+                <field name="contact_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="contact_phone_form_view" model="ir.ui.view">
+        <field name="name">contact.phone.form.view</field>
+        <field name="model">contact.phone.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="phone_no"/>
+                            <field name="phone_type"/>
+                            <field name="is_primary"/>
+                            <field name="contact_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_contact_boom" model="ir.actions.act_window">
+        <field name="name">Contact</field>
+        <field name="res_model">contact.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_contact_phone_boom" model="ir.actions.act_window">
+        <field name="name">Contact Phone</field>
+        <field name="res_model">contact.phone.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="contact_management_boom" name="Contact Management By Boom" sequence="1"/>
+    <menuitem id="contact_sub_boom" name="Contact" parent="contact_management_boom" action="action_contact_boom"/>
+    <menuitem id="contact_report_boom" name="Reports" parent="contact_management_boom"/>
+    <menuitem id="contact_list_boom" name="Contact List" parent="contact_report_boom"
+              action="action_contact_phone_boom"/>
+
+</odoo>
