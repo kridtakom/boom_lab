@@ -31,7 +31,9 @@ class ContactModel(models.Model):
 
     @api.multi
     def _check(self):
-        self.primary_phone_no = '0123456789'
+        for rec in self:
+            rec.primary_phone_no = '0123456789'
+
 
 class ContactPhoneModel(models.Model):
     _name = "contact.phone.model"
