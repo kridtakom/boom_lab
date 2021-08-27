@@ -1,6 +1,6 @@
 {
     'name': "BOOM LAB",
-    'version': "0.0.59",
+    'version': "0.0.60",
     'author': "MR. KRIDTAKOM CHOKANUNVANIT",
     'sequence': -1000,
     'depends': ['base'],
