@@ -29,10 +29,10 @@ class ContactModel(models.Model):
                 total_age = int((today_date - dob).days / 365)
                 rec.age = total_age
 
-    @api.multi
-    def _check(self):
-        for rec in self:
-            rec.primary_phone_no = '0123456789'
+    # @api.model
+    # def _check(self):
+    #     for rec in self:
+    #         rec.primary_phone_no = '0123456789'
 
 
 class ContactPhoneModel(models.Model):
