@@ -22,6 +22,7 @@ class ContactModel(models.Model):
 
     @api.depends("birth_date")
     def _cal_age(self):
+        print('=======================================================',self)
         today_date = date.today()
         for rec in self:
             if rec.birth_date:
