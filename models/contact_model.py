@@ -1,5 +1,8 @@
 from odoo import fields, models, api, _
 from datetime import date
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class ContactModel(models.Model):
@@ -22,7 +25,7 @@ class ContactModel(models.Model):
 
     @api.depends("birth_date")
     def _cal_age(self):
-        print('=======================================================',self)
+        _logger.info("IT IS INFO =============================================: ", self)
         today_date = date.today()
         for rec in self:
             if rec.birth_date:
